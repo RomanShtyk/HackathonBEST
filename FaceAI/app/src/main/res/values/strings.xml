@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FaceAI</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="start">START</string>
+    <string name="find_it">Find It</string>
+</resources>
