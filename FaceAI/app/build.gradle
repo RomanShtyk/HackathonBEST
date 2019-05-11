@@ -23,7 +23,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.facebook.android:facebook-login:[4,5)'
+    implementation 'com.facebook.android:facebook-login:4.42.0'
     implementation 'com.facebook.android:facebook-android-sdk:4.28.0'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"

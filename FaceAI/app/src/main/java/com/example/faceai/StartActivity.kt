@@ -1,28 +1,15 @@
 package com.example.faceai
 
-
+import android.content.Intent
+import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import com.facebook.*
+import com.facebook.appevents.AppEventsLogger
 import com.facebook.login.LoginResult
+import com.facebook.login.widget.LoginButton
 import java.util.*
 
-import com.facebook.GraphRequest
-import com.facebook.AccessToken
-import com.facebook.login.widget.LoginButton
-import android.content.Intent
-
-
-
-
-
-
-
-
-class LoginFragment : Fragment() {
+class StartActivity : AppCompatActivity() {
     var loggedOut: Boolean = false
 
     val EMAIL = "email"
@@ -30,20 +17,17 @@ class LoginFragment : Fragment() {
 
     var callbackManager: CallbackManager? = null
 
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-
-       val  view = inflater.inflate(R.layout.fragment_login, container, false)
-
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        FacebookSdk.sdkInitialize(applicationContext)
+        AppEventsLogger.activateApp(this)
+        setContentView(R.layout.activity_start)
         loggedOut = AccessToken.getCurrentAccessToken() == null || Profile.getCurrentProfile() == null
         if (!loggedOut) {
 //            val intent = Intent(this@LoginActivity, CardActivity::class.java)
 //            startActivity(intent)
         }
-        val loginButton = view.findViewById<LoginButton>(R.id.login_button)
+        val loginButton = findViewById<LoginButton>(R.id.login_button)
 
         loginButton.setReadPermissions(Arrays.asList(EMAIL, PUBLIC_PROFILE))
         callbackManager = CallbackManager.Factory.create()
@@ -62,17 +46,14 @@ class LoginFragment : Fragment() {
             }
         })
 
-
-
-
-        return view
     }
 
     private fun getUserProfile(currentAccessToken: AccessToken) {
         val request = GraphRequest.newMeRequest(
             currentAccessToken
         ) { `object`, response ->
-            //перехід далі
+            val intent = Intent(this@StartActivity, MainActivity::class.java)
+            startActivity(intent)
         }
 
         val parameters = Bundle()
@@ -83,11 +64,6 @@ class LoginFragment : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-            this.onActivityResult(requestCode, resultCode, data)
         callbackManager?.onActivityResult(requestCode, resultCode, data)
     }
-
-
-
-
 }
