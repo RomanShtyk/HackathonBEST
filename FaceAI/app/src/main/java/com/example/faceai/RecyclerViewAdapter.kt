@@ -1,5 +1,6 @@
 package com.example.faceai
 
+import android.annotation.SuppressLint
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -30,12 +31,12 @@ class RecyclerViewAdapter(var items: ArrayList<Person>) : RecyclerView.Adapter<R
     }
 
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val person: Person = items[position]
         holder.image
-        holder.name.text = person.name
-        holder.bio.text = person.bio
-
+        holder.name.text = person.firstName + " " + person.lastName
+        holder.bio.text = person.email
     }
 
     class MyViewHolder(view: View) : RecyclerView.ViewHolder(view){

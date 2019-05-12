@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_result.*
 
 class ResultFragment : Fragment() {
@@ -26,15 +27,14 @@ class ResultFragment : Fragment() {
         recyclerView.apply {
             layoutManager = LinearLayoutManager(this.context)
         }
+        val user = User()
+        user.id = arguments?.get("id") as String
 
-//        mAdapter = RecyclerViewAdapter(records, this@ListFragment)
-//        val divider = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
-//        divider.setDrawable(context!!.getDrawable(R.drawable.recyclerview_divider))
-//        recyclerView.apply {
-//            layoutManager = LinearLayoutManager(this.context)
-//            adapter = mAdapter
-//            addItemDecoration(divider)
-//        }
+        button4.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("id", user.id)
+            Navigation.findNavController(view).navigate(R.id.quizFragment)
+        }
 
     }
 

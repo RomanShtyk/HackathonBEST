@@ -1,0 +1,23 @@
+package com.example.faceai
+
+import retrofit2.Call
+import retrofit2.http.Body
+import retrofit2.http.GET
+import retrofit2.http.POST
+
+
+interface MyApiEndpointInterface {
+
+    @POST("get_user")
+    fun createUser(@Body person: Person): Call<User>
+
+    @GET("get_images")
+    fun getImages(@Body user: User): Call<ArrayList<MyImage>>
+
+    @POST("hz")
+    fun sendChosenImage(@Body image: MyImage)
+
+    @GET("hz")
+    fun getPersons(@Body user: User) : Call<Person>
+
+}

@@ -2,17 +2,14 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph"
-            app:startDestination="@id/loginFragment">
+            app:startDestination="@id/registrationFragment"
+>
 
-    <fragment android:id="@+id/loginFragment" android:name="com.example.faceai.LoginFragment"
-              android:label="fragment_login" tools:layout="@layout/fragment_login">
-        <action android:id="@+id/action_loginFragment_to_registrationFragment"
-                app:destination="@id/registrationFragment"/>
-        <action android:id="@+id/action_loginFragment_to_resultFragment2" app:destination="@id/resultFragment"/>
-    </fragment>
     <fragment android:id="@+id/registrationFragment" android:name="com.example.faceai.RegistrationFragment"
               android:label="fragment_registration" tools:layout="@layout/fragment_registration">
-        <action android:id="@+id/action_registrationFragment_to_quizFragment" app:destination="@id/quizFragment"/>
+        <action android:id="@+id/action_registrationFragment_to_quizFragment" app:destination="@id/quizFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"/>
+        <argument android:name="id" app:argType="string" android:defaultValue="0"/>
     </fragment>
     <fragment android:id="@+id/quizFragment" android:name="com.example.faceai.QuizFragment"
               android:label="fragment_quiz" tools:layout="@layout/fragment_quiz">

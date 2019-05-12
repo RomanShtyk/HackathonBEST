@@ -7,6 +7,9 @@ import com.facebook.*
 import com.facebook.appevents.AppEventsLogger
 import com.facebook.login.LoginResult
 import com.facebook.login.widget.LoginButton
+import com.google.gson.GsonBuilder
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
 
 class StartActivity : AppCompatActivity() {
@@ -24,8 +27,11 @@ class StartActivity : AppCompatActivity() {
         setContentView(R.layout.activity_start)
         loggedOut = AccessToken.getCurrentAccessToken() == null || Profile.getCurrentProfile() == null
         if (!loggedOut) {
-//            val intent = Intent(this@LoginActivity, CardActivity::class.java)
-//            startActivity(intent)
+            val intent = Intent(this@StartActivity, MainActivity::class.java)
+
+            intent.putExtra("LOGGEDIN", true)
+            intent.putExtra("EMAIL", "rdsh@ukr.net")
+            startActivity(intent)
         }
         val loginButton = findViewById<LoginButton>(R.id.login_button)
 
@@ -38,11 +44,9 @@ class StartActivity : AppCompatActivity() {
             }
 
             override fun onCancel() {
-                println("penis")
             }
 
             override fun onError(error: FacebookException) {
-                println(error)
             }
         })
 
@@ -52,12 +56,15 @@ class StartActivity : AppCompatActivity() {
         val request = GraphRequest.newMeRequest(
             currentAccessToken
         ) { `object`, response ->
+            val user_email = response.jsonObject.optString("email")
             val intent = Intent(this@StartActivity, MainActivity::class.java)
+            intent.putExtra("LOGGEDIN", false)
+            intent.putExtra("EMAIL", user_email)
             startActivity(intent)
         }
 
         val parameters = Bundle()
-        parameters.putString("fields", "first_name,last_name,email,id")
+        parameters.putString("fields", "id, first_name, last_name, email, birthday")
         request.parameters = parameters
         request.executeAsync()
     }
