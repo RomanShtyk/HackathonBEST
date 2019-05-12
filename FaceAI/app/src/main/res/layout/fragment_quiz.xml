@@ -4,6 +4,7 @@
                                              android:layout_width="match_parent"
                                              android:layout_height="match_parent"
                                              xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             android:background="@color/colorDaffofil"
                                              tools:context=".QuizFragment">
 
 
@@ -13,48 +14,53 @@
             android:layout_height="wrap_content"
             android:id="@+id/textView4"
             android:textSize="25sp"
+            android:textColor="@color/colorPrimary"
             android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.056"/>
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.057"
+            app:layout_constraintHorizontal_bias="0.069"/>
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" tools:src="@tools:sample/avatars"
             android:id="@+id/imageView" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView5"
             android:layout_marginEnd="8dp" app:layout_constraintEnd_toStartOf="@+id/imageView2"
             android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.100000024"/>
+            app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" app:layout_constraintVertical_bias="0.215"/>
     <TextView
-            android:text="1/10"
+            android:text="1/7"
+            android:padding="6dp"
             android:layout_width="wrap_content"
-            android:textSize="30sp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
             android:layout_height="wrap_content"
             android:id="@+id/textView5"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" android:layout_marginTop="552dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.013"/>
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.509"/>
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" tools:src="@tools:sample/avatars"
             android:id="@+id/imageView2"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView5"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
             android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.100000024"/>
+            app:layout_constraintHorizontal_bias="0.501" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" app:layout_constraintVertical_bias="0.215"/>
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" tools:src="@tools:sample/avatars"
             android:id="@+id/imageView4" app:layout_constraintStart_toEndOf="@+id/imageView2"
-            android:layout_marginStart="8dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.100000024"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
-    />
+            app:layout_constraintHorizontal_bias="1.0" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" app:layout_constraintVertical_bias="0.215"/>
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" tools:src="@tools:sample/avatars"

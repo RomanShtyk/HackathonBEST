@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
         if(intent?.extras!!["LOGGEDIN"] as Boolean){
-            navController.navigate(R.id.resultFragment)
+//            navController.navigate(R.id.resultFragment)
         }
     }
 

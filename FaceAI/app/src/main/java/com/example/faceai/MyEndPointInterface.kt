@@ -17,7 +17,7 @@ interface MyApiEndpointInterface {
     @POST("hz")
     fun sendChosenImage(@Body image: MyImage)
 
-    @GET("hz")
-    fun getPersons(@Body user: User) : Call<Person>
+    @GET("get_matchers")
+    fun getPersons(@Body user: User) : Call<ArrayList<Person>>
 
 }

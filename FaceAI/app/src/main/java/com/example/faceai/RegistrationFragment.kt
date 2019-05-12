@@ -97,7 +97,7 @@ class RegistrationFragment : Fragment() {
             call.enqueue(object : Callback<User> {
                 override fun onResponse(call: Call<User>, response: Response<User>) {
                    val user = response.body()
-                    val bundle = Bundle()
+                    var bundle = Bundle()
                     bundle.putString("id", user?.id)
                     Navigation.findNavController(view).navigate(R.id.quizFragment, bundle)
                 }

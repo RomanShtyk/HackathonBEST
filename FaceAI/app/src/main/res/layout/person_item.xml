@@ -4,16 +4,17 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:background="@color/colorDaffofil"
+        android:layout_height="110dp">
 
     <android.support.v7.widget.CardView
             android:id="@+id/view2"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:elevation="12dp"
-            app:cardCornerRadius="40dp" app:layout_constraintStart_toStartOf="parent"
+            app:cardCornerRadius="90dp" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0">
@@ -21,6 +22,7 @@
         <ImageView
                 android:id="@+id/image"
                 android:layout_width="match_parent"
+                tools:src="@tools:sample/avatars"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/todo"
                 android:scaleType="centerCrop"/>
@@ -29,6 +31,7 @@
     <TextView
             android:id="@+id/userName"
             android:layout_width="wrap_content"
+            android:textColor="@color/colorPrimary"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
@@ -37,7 +40,8 @@
             android:layout_marginTop="8dp"
             android:layout_toEndOf="@+id/view2"
             android:text="@string/angelina_joli"
-            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textSize="24sp"
             app:layout_constraintStart_toEndOf="@+id/view2"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="RtlHardcoded,SmallSp"/>
@@ -45,12 +49,14 @@
     <TextView
             android:id="@+id/lastMessage"
             android:layout_width="wrap_content"
+            android:textColor="@color/colorPrimary"
             android:layout_height="wrap_content"
             android:layout_below="@id/userName"
             android:layout_alignParentLeft="true"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_toEndOf="@+id/view2"
+            android:textSize="16sp"
             android:text="facebookurl"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

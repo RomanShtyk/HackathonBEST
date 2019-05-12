@@ -3,11 +3,13 @@
                                              xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
+                                             android:background="@color/colorDaffofil"
              tools:context=".ResultFragment">
 
 
     <TextView
             android:text="Best Matches"
+            android:textColor="@color/colorPrimary"
             android:layout_width="wrap_content"
             android:textSize="30dp"
             android:layout_height="wrap_content"
@@ -19,19 +21,26 @@
     <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="550dp"
+            tools:listitem="@layout/person_item"
             app:layout_constraintTop_toBottomOf="@+id/textView6" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:id="@+id/recyclerView" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.089"/>
     <Button
             android:text="Redo research"
-            android:layout_width="wrap_content"
+            android:textColor="@color/colorDaffofil"
+            android:background="@color/colorPrimary"
+            android:padding="8dp"
+            android:paddingEnd="32dp"
+            android:paddingStart="32dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/button4" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/recyclerView"/>
+            app:layout_constraintTop_toBottomOf="@+id/recyclerView" app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="1.0"/>
 
 
 </android.support.constraint.ConstraintLayout>
