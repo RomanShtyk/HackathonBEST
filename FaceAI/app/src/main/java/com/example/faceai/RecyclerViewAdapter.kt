@@ -9,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.fragment_quiz.*
 import kotlinx.android.synthetic.main.person_item.view.*
 
 class RecyclerViewAdapter(var items: ArrayList<Person>) : RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>(){
@@ -36,15 +38,9 @@ class RecyclerViewAdapter(var items: ArrayList<Person>) : RecyclerView.Adapter<R
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val person: Person = items[position]
-        val bmp = Base64.decode(person.photo64, Base64.DEFAULT)
+        Picasso.get().load(person.photo64).into(holder.image)
 
-        val bitmap = BitmapFactory.decodeByteArray(
-            bmp, 0,
-            bmp.size
-        )
-
-        holder.image.setImageBitmap(bitmap)
-        holder.name.text = person.firstName + " " + person.lastName
+        holder.name.text = person.firstName
         holder.bio.text = person.email
     }
 

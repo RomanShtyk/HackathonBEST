@@ -67,45 +67,45 @@ class RegistrationFragment : Fragment() {
 
         button3.setOnClickListener {
 
-            val gender = if (checkBox.isChecked) "male" else "female"
-            val pref: String = when {
-                checkBox3.isChecked -> "male"
-                checkBox4.isChecked -> "female"
-                else -> "both"
-            }
-
-            val person = Person()
-            person.email = email
-            person.firstName = firstName
-            person.lastName = lastName
-            person.gender = email
-            person.photo64 = encoded
-            person.pref = pref
-
-            val gson = GsonBuilder()
-                .setLenient()
-                .create()
-
-            val BASE_URL = "http://3.82.61.171/"
-            val retrofit = Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .build()
-
-            val api: MyApiEndpointInterface = retrofit.create(MyApiEndpointInterface::class.java)
-            val call = api.createUser(person)
-            call.enqueue(object : Callback<User> {
-                override fun onResponse(call: Call<User>, response: Response<User>) {
-                   val user = response.body()
-                    var bundle = Bundle()
-                    bundle.putString("id", user?.id)
-                    Navigation.findNavController(view).navigate(R.id.quizFragment, bundle)
-                }
-
-                override fun onFailure(call: Call<User>, t: Throwable) {
-                    println(t)
-                }
-            })
+//            val gender = if (checkBox.isChecked) "male" else "female"
+//            val pref: String = when {
+//                checkBox3.isChecked -> "male"
+//                checkBox4.isChecked -> "female"
+//                else -> "both"
+//            }
+//
+//            val person = Person()
+//            person.email = email
+//            person.firstName = firstName
+//            person.lastName = lastName
+//            person.gender = email
+//            person.photo64 = encoded
+//            person.pref = pref
+//
+//            val gson = GsonBuilder()
+//                .setLenient()
+//                .create()
+//
+//            val BASE_URL = "http://3.82.61.171/"
+//            val retrofit = Retrofit.Builder()
+//                .baseUrl(BASE_URL)
+//                .addConverterFactory(GsonConverterFactory.create(gson))
+//                .build()
+//
+//            val api: MyApiEndpointInterface = retrofit.create(MyApiEndpointInterface::class.java)
+//            val call = api.createUser(person)
+//            call.enqueue(object : Callback<User> {
+//                override fun onResponse(call: Call<User>, response: Response<User>) {
+//                   val user = response.body()
+//                    val bundle = Bundle()
+//                    bundle.putString("id", user?.id) Navigation.findNavController(view).navigate(R.id.quizFragment, bundle)
+                    Navigation.findNavController(view).navigate(R.id.quizFragment)
+//                }
+//
+//                override fun onFailure(call: Call<User>, t: Throwable) {
+//                    println(t)
+//                }
+//            })
 
         }
     }

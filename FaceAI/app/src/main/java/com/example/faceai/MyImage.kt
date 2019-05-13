@@ -9,8 +9,8 @@ class MyImage{
     @Expose
     lateinit var photo64: String
 
-    @SerializedName("id")
-    @Expose
-    lateinit var id : String
+//    @SerializedName("id")
+//    @Expose
+//    lateinit var id : String
 
 }
